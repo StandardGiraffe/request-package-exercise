@@ -10,8 +10,9 @@ const requestImage = function () {
     throw err;
   })
   .on("response", function (response) {
+    console.log(`Response: ${response.statusCode}: ${response.statusMessage}\nContent type: ${response.headers["content-type"]}`)
     if (response.statusCode === 200) {
-      console.log ("Resource found!");
+      console.log ("\nResource found!");
     }
   });
 }
