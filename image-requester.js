@@ -12,7 +12,8 @@ const requestImage = function () {
   .on("response", function (response) {
     console.log(`Response: ${response.statusCode}: ${response.statusMessage}\nContent type: ${response.headers["content-type"]}`)
     if (response.statusCode === 200) {
-      console.log ("\nResource found!");
+      console.log ("\nResource found!\nDownloading...");
+      request.get(target).pipe(fs.createWriteStream('./future.jpg')) && console.log("Download complete!");
     }
   });
 }
